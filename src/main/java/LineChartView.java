@@ -105,7 +105,7 @@ public class LineChartView extends GridPane {
             try {
                 chartData
                 .add(
-                new XYChart.Series<Number, Number>(
+                new XYChart.Series<>(
                 FXCollections.observableArrayList(
                 model
                 .readData(file)
