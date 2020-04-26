@@ -114,13 +114,13 @@ public class LineChartView extends GridPane {
                 new XYChart.Data<Number, Number>(pair.getKey(), pair.getValue()))
                 .collect(Collectors.toList()))));
             } catch (NumberFormatException ex) {
-                throwError("Некорректные данные", ex.getMessage());
+                throwErrorAlert("Некорректные данные", ex.getMessage());
             } catch (IOException ex) {
-                throwError("Файл не прочитан", ex.getMessage());
+                throwErrorAlert("Файл не прочитан", ex.getMessage());
             }
         }
     }
-    void throwError(String headerText, String contentText) {
+    void throwErrorAlert(String headerText, String contentText) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Ошибка");
         alert.setHeaderText(headerText);
