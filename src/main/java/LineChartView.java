@@ -120,7 +120,7 @@ public class LineChartView extends GridPane {
             }
         }
     }
-    void throwErrorAlert(String headerText, String contentText) {
+    private void throwErrorAlert(String headerText, String contentText) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Ошибка");
         alert.setHeaderText(headerText);
