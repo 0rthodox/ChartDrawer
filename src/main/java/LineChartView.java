@@ -114,18 +114,17 @@ public class LineChartView extends GridPane {
                 new XYChart.Data<Number, Number>(pair.getKey(), pair.getValue()))
                 .collect(Collectors.toList()))));
             } catch (NumberFormatException ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Ошибка");
-                alert.setHeaderText("Некорректные данные: ");
-                alert.setContentText(ex.getMessage());
-                alert.showAndWait();
+                throwError("Некорректные данные", ex.getMessage());
             } catch (IOException ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Ошибка");
-                alert.setHeaderText("Файл не прочитан");
-                alert.setContentText(ex.getMessage());
-                alert.showAndWait();
+                throwError("Файл не прочитан", ex.getMessage());
             }
         }
+    }
+    void throwError(String headerText, String contentText) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Ошибка");
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        alert.showAndWait();
     }
 }
